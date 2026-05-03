@@ -1,0 +1,242 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/roches-blanches-hero.jpg';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://liammocean.bzh/#organization",
+      "name": "Liamm Océan",
+      "url": "https://liammocean.bzh",
+      "logo": "https://liammocean.bzh/wp-content/uploads/2026/04/liammocean-logo.png",
+      "address": { "@type": "PostalAddress", "addressLocality": "Douarnenez", "postalCode": "29100", "addressCountry": "FR" }
+    },
+    {
+      "@type": "Article",
+      "headline": "Les Roches Blanches de Douarnenez : sentier, baignade et panoramas",
+      "description": "Découvrez les Roches Blanches de Douarnenez : sentier côtier de 5,5 km, baignade, parking, accès et panoramas sur la baie.",
+      "image": "https://liammocean.bzh/decouvrir/roches-blanches-douarnenez/images/hero.jpg",
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "author": { "@type": "Organization", "name": "Liamm Océan", "url": "https://liammocean.bzh/qui-sommes-nous/" },
+      "publisher": { "@id": "https://liammocean.bzh/#organization" },
+      "mainEntityOfPage": "https://liammocean.bzh/decouvrir/roches-blanches-douarnenez/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://liammocean.bzh/" },
+        { "@type": "ListItem", "position": 2, "name": "Découvrir", "item": "https://liammocean.bzh/decouvrir/" },
+        { "@type": "ListItem", "position": 3, "name": "Les Roches Blanches de Douarnenez" }
+      ]
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Les Roches Blanches",
+      "description": "Site naturel de quartz blanc sur le sentier côtier de Tréboul, Douarnenez.",
+      "geo": { "@type": "GeoCoordinates", "latitude": 48.092, "longitude": -4.33 },
+      "address": { "@type": "PostalAddress", "addressLocality": "Douarnenez", "addressRegion": "Finistère", "addressCountry": "FR" },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Où se trouvent les Roches Blanches de Douarnenez ?", "acceptedAnswer": { "@type": "Answer", "text": "Sur le littoral de Tréboul, entre la Pointe de Leydé et la plage des Sables Blancs." } },
+        { "@type": "Question", "name": "Quelle est la difficulté du sentier ?", "acceptedAnswer": { "@type": "Answer", "text": "Modérée : 5,5 km, 160 m de dénivelé, environ 2 heures." } },
+        { "@type": "Question", "name": "Peut-on se baigner ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, dans les criques (accès rocheux). La plage des Sables Blancs offre une baignade surveillée à proximité." } },
+        { "@type": "Question", "name": "Où se garer ?", "acceptedAnswer": { "@type": "Answer", "text": "Stationnement gratuit route des Roches Blanches et parking plage des Sables Blancs." } },
+        { "@type": "Question", "name": "Peut-on voir les Roches Blanches depuis la mer ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, avec les croisières Liamm Océan au départ de Douarnenez." } }
+      ]
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title="Les Roches Blanches de Douarnenez : sentier, baignade et panoramas"
+  description="Découvrez les Roches Blanches de Douarnenez : sentier côtier de 5,5 km, baignade, parking, accès et panoramas sur la baie. Guide par Liamm Océan."
+  canonical="https://liammocean.bzh/decouvrir/roches-blanches-douarnenez/"
+  ogImage="https://liammocean.bzh/decouvrir/roches-blanches-douarnenez/images/hero.jpg"
+  publishDate="2026-05-01T10:00:00+02:00"
+  jsonLd={jsonLd}
+>
+
+  <!-- HERO -->
+  <section class="hero">
+    <Image
+      src={heroImage}
+      alt="Falaises de quartz blanc et végétation sur le sentier côtier des Roches Blanches à Douarnenez, vue sur la baie"
+      widths={[600, 900, 1200, 1600]}
+      sizes="100vw"
+      format="webp"
+      quality={75}
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+    <div class="hero__overlay">
+      <div class="hero__content">
+        <h1>Les Roches Blanches de Douarnenez</h1>
+        <p class="hero__lede">Entre quartz blanc et embruns, le sentier côtier de Tréboul dévoile l'un des plus beaux panoramas de la baie.</p>
+        <a class="btn btn-white btn-lg" href="https://reservation.elloha.com/Widget/BookingCalendar/a202693d-9cb9-4e1b-aaad-81ef31c8a6b6">Découvrir depuis la mer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb + Meta -->
+  <div class="wrap narrow">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="https://liammocean.bzh/">Accueil</a><span class="sep">›</span><a href="/decouvrir/">Découvrir</a><span class="sep">›</span>Les Roches Blanches
+    </nav>
+    <div class="post-meta">1 mai 2026 · Liamm Océan · 8 min de lecture</div>
+  </div>
+
+  <!-- Article -->
+  <article class="post-body wrap narrow">
+
+    <h2>Un site de quartz blanc face à la baie</h2>
+
+    <p>À la sortie de Tréboul, le bitume cède la place aux fougères. Le sentier descend entre les pins, et soudain, elles apparaissent : les <strong>Roches Blanches de Douarnenez</strong>. Des affleurements de quartz clair, polis par les marées, qui tranchent sur le bleu profond de la baie. Un contraste saisissant, presque irréel, que seule la côte finistérienne sait offrir.</p>
+
+    <p>Situé entre la <strong>Pointe de Leydé</strong> et la <a href="https://liammocean.bzh/infos-utiles/">plage des Sables Blancs</a>, ce site naturel marque l'entrée ouest de la baie de Douarnenez. Les roches doivent leur blancheur à la forte teneur en quartz du sous-sol breton — un vestige géologique vieux de plusieurs centaines de millions d'années. Ici, en breton, on dit <em>ar maen gwenn</em> : la pierre blanche.</p>
+
+
+    <h2>Le sentier des Roches Blanches : itinéraire et difficulté</h2>
+
+    <h3>Départ et tracé</h3>
+
+    <p>Le <strong>sentier des Roches Blanches</strong> démarre depuis le quartier de Tréboul, à quelques pas de la plage des Sables Blancs. Prenez la route des Roches Blanches en direction de l'ouest : après le camping de Kerleyou, un panneau balisé marque le départ du sentier côtier.</p>
+
+    <p>Le tracé longe la falaise en surplomb, entre landes d'ajoncs et pins maritimes. Chaque virage révèle une crique, un promontoire, une perspective nouvelle sur la presqu'île de Crozon en face. Le sentier rejoint la <strong>grotte de Kerandraon</strong> avant de boucler par les chemins intérieurs.</p>
+
+    <h3>Distance, dénivelé et durée</h3>
+
+    <table class="trail-table">
+      <tr><th>Distance</th><td>5,5 km (boucle côtière)</td></tr>
+      <tr><th>Durée</th><td>2 h environ</td></tr>
+      <tr><th>Dénivelé</th><td>160 m cumulés</td></tr>
+      <tr><th>Difficulté</th><td>Modérée — passages rocheux et marches naturelles</td></tr>
+      <tr><th>Balisage</th><td>Jaune (PR) + blanc-rouge (GR34)</td></tr>
+      <tr><th>Point de départ</th><td>Plage des Sables Blancs, Tréboul</td></tr>
+    </table>
+
+    <p>Des variantes plus longues existent : la boucle complète par Kerandraon et retour par la route fait environ 10,8 km pour 3 h 30 de marche. Comptez de bonnes chaussures et de l'eau, même en demi-saison.</p>
+
+    <h3>Connexion au GR34</h3>
+
+    <p>Le sentier des Roches Blanches fait partie du célèbre <a href="https://fr.wikipedia.org/wiki/Sentier_de_grande_randonn%C3%A9e_34" target="_blank" rel="noopener noreferrer">GR34</a>, le sentier des douaniers qui parcourt l'intégralité du littoral breton sur plus de 1 800 km. La section douarneniste est l'une des plus spectaculaires du Finistère : falaises abruptes, criques secrètes et vue constante sur la baie.</p>
+
+    <!-- CTA 1 -->
+    <aside class="cta-block">
+      <p>Envie de longer ces falaises depuis le large, les embruns sur le visage ?</p>
+      <a class="btn btn-gold" href="https://reservation.elloha.com/Widget/BookingCalendar/a202693d-9cb9-4e1b-aaad-81ef31c8a6b6">Embarquer pour De port en port</a>
+    </aside>
+
+
+    <h2>Les étapes incontournables du parcours</h2>
+
+    <h3>La Pointe de Leydé et ses panoramas</h3>
+
+    <p>Premier belvédère du sentier, la <strong>Pointe de Leydé</strong> offre un panorama à 180° : la baie de Douarnenez à vos pieds, la presqu'île de Crozon droit devant, et par temps clair, le Cap de la Chèvre qui ferme l'horizon. C'est l'un de ces endroits où l'on pose le sac et où le temps suspend son cours.</p>
+
+    <h3>La grotte de Kerandraon</h3>
+
+    <p>À mi-parcours, le sentier descend vers la <strong>grotte de Kerandraon</strong>, une cavité naturelle creusée par l'érosion marine dans la falaise de schiste. Accessible à marée basse, elle offre un spectacle minéral saisissant — et une fraîcheur bienvenue en plein été. Vérifiez les horaires de marée avant de vous y aventurer.</p>
+
+    <h3>L'ancienne colonie — un site en renaturation</h3>
+
+    <p>En chemin, vous apercevrez les vestiges de l'ancienne colonie de vacances des Roches Blanches, construite en 1960 et abandonnée depuis 2007. Fin 2025, le <a href="https://www.finistere.fr/actualites/roches-blanches-le-departement-achete-le-site-pour-le-restituer-a-la-nature-et-aux-finisteriens/" target="_blank" rel="noopener noreferrer">Département du Finistère a acquis le site</a> pour le renaturer et le rendre au public. Un projet de déconstruction et de restauration écologique est en cours.</p>
+
+
+    <h2>Baignade et surf aux Roches Blanches</h2>
+
+    <p>La <strong>baignade aux Roches Blanches</strong> est possible, mais les accès sont rocheux et non surveillés. Les nageurs expérimentés apprécient les criques isolées et la clarté de l'eau — mais prudence : les courants côtiers peuvent être traîtres, surtout par vent d'ouest.</p>
+
+    <p>Pour une baignade familiale, la <strong>plage des Sables Blancs</strong>, à moins de dix minutes à pied du départ du sentier, offre un vaste croissant de sable fin avec surveillance en juillet-août.</p>
+
+    <p>Les surfeurs connaissent aussi le spot : les Roches Blanches fonctionnent en reef break exposé, par houle d'ouest à nord-ouest. Un spot technique, réservé aux pratiquants confirmés en raison des rochers affleurants.</p>
+
+    <!-- CTA 2 -->
+    <aside class="cta-block">
+      <p>Au crépuscule, les falaises de quartz se teintent d'or. Vivez ce spectacle depuis la mer, un verre à la main.</p>
+      <a class="btn btn-gold" href="https://reservation.elloha.com/Widget/BookingCalendar/ee8c2054-28d7-430e-882e-4afc8b36828c">Réserver L'heure dorée</a>
+    </aside>
+
+
+    <h2>Informations pratiques</h2>
+
+    <div class="info-box">
+      <h3>Comment accéder aux Roches Blanches ?</h3>
+      <p>Depuis le centre de Douarnenez, suivez la direction Tréboul, puis « Plage des Sables Blancs ». Poursuivez sur la route des Roches Blanches vers l'ouest. En voiture depuis Quimper : 25 km, environ 30 minutes par la D765.</p>
+
+      <h3>Où se garer ?</h3>
+      <p>Stationnement gratuit le long de la route des Roches Blanches et au parking de la plage des Sables Blancs. Places limitées en été — arrivez avant 10 h ou après 17 h.</p>
+
+      <h3>Quand visiter ?</h3>
+      <p>Le sentier est praticable toute l'année. Printemps pour les ajoncs en fleur. Été pour combiner rando et baignade. Automne pour les plus belles lumières. Hiver pour les tempêtes spectaculaires, à distance raisonnable.</p>
+
+      <h3>Équipement recommandé</h3>
+      <ul>
+        <li>Chaussures de randonnée (sentier rocheux)</li>
+        <li>Eau et en-cas — pas de ravitaillement sur le sentier</li>
+        <li>Coupe-vent — le vent souffle même en été</li>
+        <li>Jumelles pour les oiseaux marins</li>
+        <li>Crème solaire — peu d'ombre sur le parcours</li>
+      </ul>
+    </div>
+
+
+    <h2>Les Roches Blanches vues depuis la mer</h2>
+
+    <p>Depuis le sentier, la vue est saisissante. Depuis la mer, elle est tout autre. Les falaises de quartz se révèlent dans leur verticalité, striées de veines claires, battues par la houle. Des grottes invisibles depuis la terre s'ouvrent au ras de l'eau. Un paysage que seuls les marins connaissent — et que <a href="https://liammocean.bzh/embarquez/">Liamm Océan</a> vous propose de découvrir.</p>
+
+    <blockquote class="quote">
+      « Quand on longe les Roches Blanches avec La Sardine par mer calme, on glisse au pied de falaises que personne ne voit depuis la terre. Le quartz brille sous le soleil, les cormorans plongent à quelques mètres du bateau. C'est un moment suspendu, intimiste. Mes passagers disent souvent qu'ils redécouvrent Douarnenez. »
+      <cite>— Frédéric Pije, Capitaine 200 voile, Liamm Océan <span class="tag">[À FAIRE VALIDER PAR FRÉDÉRIC]</span></cite>
+    </blockquote>
+
+    <p>Plusieurs <a href="https://liammocean.bzh/nos-bateaux/">croisières au départ de Douarnenez</a> longent ce littoral. La sortie <em>De port en port</em> passe au large des Roches Blanches, tandis que <em>L'heure dorée</em> vous offre cette vue au soleil couchant, un apéritif à la main. Chiens admis en laisse à bord (supplément 3 €).</p>
+
+    <!-- CTA 3 -->
+    <aside class="cta-block">
+      <h2>Embarquez avec Liamm Océan</h2>
+      <p>Croisières intimistes au départ de Douarnenez, d'avril à octobre. 11 passagers maximum.</p>
+      <a class="btn btn-gold btn-lg" href="https://liammocean.bzh/embarquez/">Voir toutes nos croisières</a>
+    </aside>
+
+    <!-- FAQ -->
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions fréquentes</h2>
+
+      <details>
+        <summary>Où se trouvent les Roches Blanches de Douarnenez ?</summary>
+        <div class="answer">Sur le littoral de Tréboul, quartier ouest de Douarnenez, entre la Pointe de Leydé et la plage des Sables Blancs. Accès par la route des Roches Blanches, à 2 km du centre de Tréboul.</div>
+      </details>
+
+      <details>
+        <summary>Quelle est la difficulté du sentier ?</summary>
+        <div class="answer">Modérée : 5,5 km, 160 m de dénivelé, environ 2 h de marche. Passages rocheux avec marches naturelles. Chaussures de randonnée recommandées. Non adapté aux poussettes.</div>
+      </details>
+
+      <details>
+        <summary>Peut-on se baigner aux Roches Blanches ?</summary>
+        <div class="answer">Oui, dans les criques (accès rocheux, non surveillé). La plage des Sables Blancs à proximité offre du sable fin et une surveillance en juillet-août.</div>
+      </details>
+
+      <details>
+        <summary>Où se garer ?</summary>
+        <div class="answer">Stationnement gratuit route des Roches Blanches et parking plage des Sables Blancs. Places limitées en été — arrivez tôt ou en fin d'après-midi.</div>
+      </details>
+
+      <details>
+        <summary>Peut-on voir les Roches Blanches depuis la mer ?</summary>
+        <div class="answer">Oui. <a href="https://liammocean.bzh/embarquez/">Liamm Océan</a> propose des croisières côtières qui longent les falaises. Les sorties <em>De port en port</em> et <em>L'heure dorée</em> passent au large du site.</div>
+      </details>
+    </section>
+
+  </article>
+
+</ArticleLayout>

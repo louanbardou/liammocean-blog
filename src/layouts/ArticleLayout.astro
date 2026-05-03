@@ -1,0 +1,112 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage: string;
+  publishDate: string;
+  jsonLd?: object;
+}
+
+const { title, description, canonical, ogImage, publishDate, jsonLd } = Astro.props;
+const fullTitle = `${title} | Liamm Océan`;
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Liamm Océan">
+  <meta name="geo.region" content="FR-29">
+  <meta name="geo.placename" content="Douarnenez">
+
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:site_name" content="Liamm Océan">
+  <meta property="article:published_time" content={publishDate}>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="https://liammocean.bzh" class="logo-link">
+        <img src="https://liammocean.bzh/wp-content/uploads/2026/04/liammocean-logo.png" alt="Liamm Océan" width="180" height="64">
+      </a>
+      <nav class="primary-nav" aria-label="Navigation principale">
+        <a href="https://liammocean.bzh/embarquez/">Embarquez</a>
+        <a href="https://liammocean.bzh/nos-bateaux/">Nos bateaux</a>
+        <a href="https://liammocean.bzh/qui-sommes-nous/">Vos Capitaines</a>
+        <a href="https://liammocean.bzh/infos-utiles/">Infos utiles</a>
+        <a href="https://liammocean.bzh/contact/">Contact</a>
+        <a class="btn btn-gold" href="https://liammocean.bzh/embarquez/">Réserver</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Ribbon -->
+  <a class="ribbon" href="https://liammocean.bzh/embarquez/">
+    <small>Prenez le large</small>
+    <strong>Réservez</strong>
+  </a>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>En 1 clic</h4>
+          <ul>
+            <li><a href="https://liammocean.bzh/embarquez/">Nos croisières</a></li>
+            <li><a href="https://liammocean.bzh/nos-bateaux/">Nos bateaux</a></li>
+            <li><a href="https://liammocean.bzh/infos-utiles/">Infos utiles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul>
+            <li><a href="https://liammocean.bzh/notre-histoire/">Notre histoire</a></li>
+            <li><a href="https://liammocean.bzh/qui-sommes-nous/">Vos Capitaines</a></li>
+            <li><a href="https://liammocean.bzh/espace-presse/">Espace presse</a></li>
+            <li><a href="https://liammocean.bzh/mentions-legales/">Mentions légales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Douarnenez, Finistère<br>Bretagne, France</p>
+          <p style="font-size:0.72rem;opacity:0.4;margin-top:0.25rem">Saison : avril — octobre</p>
+          <a class="btn btn-gold" href="https://liammocean.bzh/contact/" style="margin-top:1rem">Nous contacter</a>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2026 Liamm Océan — Douarnenez, Finistère</p>
+    </div>
+  </footer>
+
+  <a class="mobile-cta" href="https://liammocean.bzh/embarquez/">Réserver une croisière</a>
+</body>
+</html>
