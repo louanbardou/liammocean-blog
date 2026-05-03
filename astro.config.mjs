@@ -2,8 +2,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://liammocean.bzh',
-  base: '/decouvrir',
+  site: 'https://louanbardou.github.io',
+  base: '/liammocean-blog',
   trailingSlash: 'always',
   build: { format: 'directory' },
 });
