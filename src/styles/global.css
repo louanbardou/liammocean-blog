@@ -93,112 +93,156 @@ p { margin-bottom: 0; }
 .btn-white:hover { background: var(--teal); color: var(--white); }
 .btn-lg { font-size: 0.95rem; padding: 0.8em 2em; font-weight: 900; }
 
-/* ====== Header — copie exacte du site ====== */
-.site-header {
+/* ====== Header — copie exacte de liammocean.bzh (theme Impreza) ====== */
+.l-header {
   position: sticky;
   top: 0;
   z-index: 111;
   background: var(--white);
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,0.1), 0 2px 1px -1px rgba(0,0,0,0.05);
 }
-.site-header__inner {
-  max-width: var(--content-width);
+.l-subheader {
   margin: 0 auto;
-  padding: 0 var(--pad);
+  height: 120px;
+}
+.l-subheader-h {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 100px;
+  position: relative;
+  margin: 0 auto;
+  max-width: var(--content-width);
+  height: inherit;
+  padding: 0 var(--pad);
 }
-.logo-link img {
-  height: 55px;
-  width: auto;
+.l-subheader-cell {
+  display: flex;
+  align-items: center;
 }
-
-/* Nav */
-.primary-nav {
+.l-subheader-cell.at_left {
+  flex-shrink: 0;
+}
+.l-subheader-cell.at_center {
+  flex-grow: 1;
+}
+.l-subheader-cell.at_right {
+  flex-shrink: 0;
+  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 0;
 }
-.primary-nav a {
-  font-size: 0.82rem;
+
+/* Logo */
+.logo-link { display: flex; align-items: center; }
+.logo-link:hover { opacity: 0.85; }
+.logo-link img { height: 70px; width: auto; }
+
+/* Nav — exacte du site */
+.lmn-nav { display: flex; align-items: center; height: 100%; }
+.lmn-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.lmn-nav-list li {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+.lmn-nav-list li a {
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   color: var(--navy);
+  text-decoration: none;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  height: 100%;
   white-space: nowrap;
-  padding: 0 14px;
-  position: relative;
   transition: color 0.3s;
 }
-.primary-nav a:hover {
+.lmn-nav-list li a:hover {
   color: var(--navy);
+}
+
+/* Separateur image entre les liens */
+.lmn-nav-list li.has-sep::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 18px;
+  background: url('/liammocean-blog/images/menu-separator.png') center/contain no-repeat;
+  flex-shrink: 0;
   opacity: 0.7;
 }
-/* Separateur \ fin en teal entre les liens */
-.primary-nav a:not(:last-child)::after {
-  content: "\\";
-  position: absolute;
-  right: -2px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--teal);
-  font-weight: 300;
-  font-size: 0.85rem;
-  pointer-events: none;
-  opacity: 0.5;
-}
-/* Dropdown chevron */
+
+/* Dropdown arrow */
 .nav-arrow {
   display: inline-block;
-  font-size: 0.5rem;
-  margin-left: 0.15em;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--navy);
+  margin-left: 6px;
+  opacity: 0.5;
   vertical-align: middle;
-  opacity: 0.6;
 }
 
-@media (max-width: 1024px) {
-  .primary-nav { display: none; }
-  .site-header__inner { height: 70px; }
-  .logo-link img { height: 42px; }
+/* ====== Ribbon / Flag "Réservez" — copie exacte ====== */
+.lmn-flagresa-wrap {
+  margin-left: 20px;
+  position: relative;
+  flex-shrink: 0;
 }
-
-/* ====== Ribbon — identique au site ====== */
-.ribbon {
-  position: fixed;
-  top: 0;
-  right: 1.5rem;
-  z-index: 120;
-  background: var(--mustard);
-  color: var(--navy);
-  text-align: center;
+.lmn-flagresa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  padding: 1.2rem 1.6rem 2.4rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  transition: transform 0.3s;
+  color: var(--navy);
+  background: var(--mustard);
+  padding: 14px 18px 28px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+  text-align: center;
   line-height: 1.2;
+  transition: transform 0.3s;
+  position: relative;
 }
-.ribbon:hover {
-  transform: translateY(5px);
+.lmn-flagresa:hover {
+  transform: translateY(4px);
   color: var(--navy);
 }
-.ribbon small {
+.lmn-flagresa-large {
   display: block;
-  font-size: 0.6rem;
-  font-weight: 800;
+  font-size: 0.55rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.25rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 2px;
 }
-.ribbon strong {
+.lmn-flagresa-reservez {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   font-style: italic;
 }
-@media (max-width: 768px) { .ribbon { display: none; } }
+
+@media (max-width: 1024px) {
+  .lmn-nav { display: none; }
+  .lmn-flagresa-wrap { display: none; }
+  .l-subheader { height: 80px; }
+  .logo-link img { height: 50px; }
+}
 
 /* ====== Mobile CTA ====== */
 .mobile-cta {
