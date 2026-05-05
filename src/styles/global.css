@@ -114,40 +114,46 @@ p { margin-bottom: 0; }
   width: auto;
 }
 
-/* Nav — avec separateurs diagonaux */
+/* Nav — liens teal, separateurs diagonaux teal */
 .primary-nav {
   display: flex;
   gap: 0;
   align-items: center;
 }
-.primary-nav a:not(.btn) {
+.primary-nav a {
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--navy);
+  color: var(--teal);
   white-space: nowrap;
-  padding: 0 15px;
+  padding: 0 18px;
   position: relative;
+  transition: color 0.3s;
 }
-.primary-nav a:not(.btn):hover {
+.primary-nav a:hover {
   color: var(--navy);
 }
-/* Separateur diagonal \ entre les liens */
-.primary-nav a:not(.btn):not(:last-of-type)::after {
+/* Separateur diagonal \ entre les liens — en teal */
+.primary-nav a:not(:last-child)::after {
   content: "\\";
   position: absolute;
-  right: -3px;
+  right: -4px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--border);
+  color: var(--teal);
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 1.05rem;
   pointer-events: none;
+  opacity: 0.6;
 }
-/* Bouton Reserver dans la nav */
-.primary-nav .btn {
-  margin-left: 15px;
+/* Dropdown arrow */
+.nav-arrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-left: 0.2em;
+  transform: rotate(90deg);
+  vertical-align: middle;
 }
 
 @media (max-width: 1024px) {
@@ -160,34 +166,34 @@ p { margin-bottom: 0; }
 .ribbon {
   position: fixed;
   top: 0;
-  right: 2rem;
+  right: 1.5rem;
   z-index: 120;
   background: var(--mustard);
   color: var(--navy);
   text-align: center;
   text-decoration: none;
-  padding: 1.1rem 1.4rem 2rem;
+  padding: 1.2rem 1.6rem 2.4rem;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   transition: transform 0.3s;
   line-height: 1.2;
 }
 .ribbon:hover {
-  transform: translateY(4px);
+  transform: translateY(5px);
   color: var(--navy);
 }
 .ribbon small {
   display: block;
-  font-size: 0.55rem;
-  font-weight: 700;
+  font-size: 0.6rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 .ribbon strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   font-style: italic;
 }
