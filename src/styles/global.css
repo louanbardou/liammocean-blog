@@ -93,41 +93,104 @@ p { margin-bottom: 0; }
 .btn-white:hover { background: var(--teal); color: var(--white); }
 .btn-lg { font-size: 0.95rem; padding: 0.8em 2em; font-weight: 900; }
 
-/* ====== Header ====== */
+/* ====== Header — fidele au site ====== */
 .site-header {
-  position: sticky; top: 0; z-index: 111;
+  position: sticky;
+  top: 0;
+  z-index: 111;
   background: var(--white);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 .site-header__inner {
-  max-width: var(--content-width); margin: 0 auto;
+  max-width: var(--content-width);
+  margin: 0 auto;
   padding: 0 var(--pad);
-  display: flex; justify-content: space-between; align-items: center;
-  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
 }
-.logo-link img { height: 46px; width: auto; }
-.primary-nav { display: flex; gap: 28px; align-items: center; }
-.primary-nav a {
-  font-size: 0.85rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--navy); white-space: nowrap;
+.logo-link img {
+  height: 70px;
+  width: auto;
 }
-.primary-nav a:hover { color: var(--mustard); }
-@media (max-width: 1024px) { .primary-nav { display: none; } .site-header__inner { height: 70px; } }
 
-/* ====== Ribbon ====== */
-.ribbon {
-  position: fixed; top: 0; right: 2.5rem; z-index: 120;
-  background: var(--mustard); color: var(--navy);
-  text-align: center; text-decoration: none;
-  padding: 1rem 1.1rem 1.6rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  transition: transform 0.3s; line-height: 1.2;
+/* Nav — avec separateurs diagonaux */
+.primary-nav {
+  display: flex;
+  gap: 0;
+  align-items: center;
 }
-.ribbon:hover { transform: translateY(4px); color: var(--navy); }
-.ribbon small { display: block; font-size: 0.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.2rem; }
-.ribbon strong { display: block; font-family: var(--font-display); font-size: 1.05rem; }
+.primary-nav a:not(.btn) {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  white-space: nowrap;
+  padding: 0 15px;
+  position: relative;
+}
+.primary-nav a:not(.btn):hover {
+  color: var(--navy);
+}
+/* Separateur diagonal \ entre les liens */
+.primary-nav a:not(.btn):not(:last-of-type)::after {
+  content: "\\";
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--border);
+  font-weight: 300;
+  font-size: 1rem;
+  pointer-events: none;
+}
+/* Bouton Reserver dans la nav */
+.primary-nav .btn {
+  margin-left: 15px;
+}
+
+@media (max-width: 1024px) {
+  .primary-nav { display: none; }
+  .site-header__inner { height: 80px; }
+  .logo-link img { height: 50px; }
+}
+
+/* ====== Ribbon — identique au site ====== */
+.ribbon {
+  position: fixed;
+  top: 0;
+  right: 2rem;
+  z-index: 120;
+  background: var(--mustard);
+  color: var(--navy);
+  text-align: center;
+  text-decoration: none;
+  padding: 1.1rem 1.4rem 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transition: transform 0.3s;
+  line-height: 1.2;
+}
+.ribbon:hover {
+  transform: translateY(4px);
+  color: var(--navy);
+}
+.ribbon small {
+  display: block;
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.3rem;
+}
+.ribbon strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+}
 @media (max-width: 768px) { .ribbon { display: none; } }
 
 /* ====== Mobile CTA ====== */
