@@ -85,8 +85,8 @@ p { margin-bottom: 0; }
   transition: all 0.3s ease; line-height: 1.2;
 }
 .btn:hover { text-decoration: none; }
-.btn-gold { background: var(--mustard); color: var(--navy); }
-.btn-gold:hover { background: var(--navy); color: var(--white); }
+.btn-gold { background: var(--mustard); color: #003c50; }
+.btn-gold:hover { background: #003c50; color: #fff; }
 .btn-teal { background: var(--teal); color: var(--white); }
 .btn-teal:hover { background: var(--navy); color: var(--white); }
 .btn-white { background: var(--white); color: var(--navy); }
@@ -372,8 +372,8 @@ p { margin-bottom: 0; }
 .post-body h2 { margin-top: 3.5rem; }
 .post-body h2:first-child { margin-top: 0; }
 .post-body h3 { margin-top: 2.5rem; }
-.post-body a { color: var(--teal); text-decoration: underline; text-decoration-color: rgba(77,189,198,0.25); text-underline-offset: 3px; }
-.post-body a:hover { color: var(--mustard); text-decoration-color: var(--mustard); }
+.post-body a:not(.btn) { color: var(--teal); text-decoration: underline; text-decoration-color: rgba(77,189,198,0.25); text-underline-offset: 3px; }
+.post-body a:not(.btn):hover { color: var(--mustard); text-decoration-color: var(--mustard); }
 .post-body ul, .post-body ol { margin-bottom: 1.5rem; padding-left: 1.75rem; list-style: disc; }
 .post-body li { margin-bottom: 0.4rem; }
 .post-body strong { font-weight: 600; }
