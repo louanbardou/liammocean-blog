@@ -204,7 +204,7 @@ p { margin-bottom: 0; }
   z-index: 120;
   width: 150px;
 }
-/* Motif decoratif derriere */
+/* Motif decoratif blanc PAR-DESSUS le fanion mustard */
 .lmn-flagresa-wrap::before {
   content: '';
   position: absolute;
@@ -215,8 +215,8 @@ p { margin-bottom: 0; }
   background: url('/liammocean-blog/images/headflag-bg.png') center/contain no-repeat;
   display: block;
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.2;
+  z-index: 3;
+  opacity: 0.3;
 }
 .lmn-flagresa {
   display: flex;
