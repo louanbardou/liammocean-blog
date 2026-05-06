@@ -203,6 +203,23 @@ p { margin-bottom: 0; }
   right: 0;
   z-index: 120;
 }
+/* Motif decoratif derriere le drapeau — copie exacte du site */
+.lmn-flagresa-wrap::before {
+  content: '';
+  position: absolute;
+  top: -32px;
+  right: 0;
+  left: 0;
+  aspect-ratio: 1/1;
+  background-image: url('/liammocean-blog/images/headflag-bg.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  pointer-events: none;
+  z-index: -1;
+  transition: 0.3s;
+}
 .lmn-flagresa {
   display: flex;
   flex-direction: column;
@@ -218,14 +235,6 @@ p { margin-bottom: 0; }
   position: relative;
   background: url('/liammocean-blog/images/headflag.png') top center/contain no-repeat;
   padding: 18px 10px 30px;
-}
-.lmn-flagresa::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('/liammocean-blog/images/headflag-bg.png') center/60% no-repeat;
-  opacity: 0.15;
-  pointer-events: none;
 }
 .lmn-flagresa:hover {
   transform: translateY(5px);
