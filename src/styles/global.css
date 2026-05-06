@@ -196,11 +196,12 @@ p { margin-bottom: 0; }
   vertical-align: middle;
 }
 
-/* ====== Ribbon / Flag "Réservez" — copie exacte ====== */
+/* ====== Ribbon / Flag "Réservez" — position fixed comme le site ====== */
 .lmn-flagresa-wrap {
-  margin-left: 20px;
-  position: relative;
-  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 120;
 }
 .lmn-flagresa {
   display: flex;
@@ -209,32 +210,45 @@ p { margin-bottom: 0; }
   justify-content: center;
   text-decoration: none;
   color: var(--navy);
-  background: var(--mustard);
-  padding: 14px 18px 28px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+  width: 120px;
+  height: 130px;
   text-align: center;
   line-height: 1.2;
   transition: transform 0.3s;
   position: relative;
+  background: url('/liammocean-blog/images/headflag.png') top center/contain no-repeat;
+  padding: 18px 10px 30px;
+}
+.lmn-flagresa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/liammocean-blog/images/headflag-bg.png') center/60% no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
 }
 .lmn-flagresa:hover {
-  transform: translateY(4px);
+  transform: translateY(5px);
   color: var(--navy);
 }
 .lmn-flagresa-large {
   display: block;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   margin-bottom: 2px;
+  position: relative;
+  z-index: 1;
 }
 .lmn-flagresa-reservez {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   font-style: italic;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 1024px) {
