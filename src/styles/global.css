@@ -110,7 +110,7 @@ p { margin-bottom: 0; }
   align-items: center;
   position: relative;
   margin: 0 auto;
-  max-width: var(--content-width);
+  max-width: none;
   height: inherit;
   padding: 0 var(--pad);
 }
@@ -127,6 +127,7 @@ p { margin-bottom: 0; }
 .l-subheader-cell.at_right {
   flex-shrink: 0;
   margin-left: auto;
+  margin-right: 160px; /* espace pour le ribbon fixe */
   display: flex;
   align-items: center;
   gap: 0;
@@ -227,14 +228,14 @@ p { margin-bottom: 0; }
   justify-content: center;
   text-decoration: none;
   color: var(--navy);
-  width: 120px;
-  height: 130px;
+  width: 140px;
+  height: 155px;
   text-align: center;
   line-height: 1.2;
   transition: transform 0.3s;
   position: relative;
   background: url('/liammocean-blog/images/headflag.png') top center/contain no-repeat;
-  padding: 18px 10px 30px;
+  padding: 16px 10px 35px;
 }
 .lmn-flagresa:hover {
   transform: translateY(5px);
@@ -265,6 +266,7 @@ p { margin-bottom: 0; }
   .lmn-flagresa-wrap { display: none; }
   .l-subheader { height: 80px; }
   .logo-link img { height: 50px; }
+  .l-subheader-cell.at_right { margin-right: 0; }
 }
 
 /* ====== Mobile CTA ====== */
