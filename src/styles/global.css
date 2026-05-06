@@ -160,7 +160,7 @@ p { margin-bottom: 0; }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0;
-  color: var(--navy);
+  color: #0E2A3F;
   text-decoration: none;
   padding: 0 15px;
   display: flex;
@@ -173,15 +173,15 @@ p { margin-bottom: 0; }
   color: var(--navy);
 }
 
-/* Separateur image entre les liens */
+/* Separateur mini-fanion entre les liens */
 .lmn-nav-list li.has-sep::before {
   content: "";
   display: block;
-  width: 10px;
-  height: 18px;
-  background: url('/liammocean-blog/images/menu-separator.png') center/contain no-repeat;
+  width: 8px;
+  height: 12px;
+  background: var(--mustard);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
   flex-shrink: 0;
-  opacity: 0.7;
 }
 
 /* Dropdown arrow */
@@ -197,31 +197,12 @@ p { margin-bottom: 0; }
   vertical-align: middle;
 }
 
-/* ====== Ribbon / Flag "Réservez" — position fixed comme le site ====== */
+/* ====== Fanion "Réservez" — queue d'aronde ====== */
 .lmn-flagresa-wrap {
   position: fixed;
   top: 0;
-  right: 10px;
-  z-index: 120;
-  width: 130px;
-}
-/* Motif decoratif derriere le drapeau */
-.lmn-flagresa-wrap::before {
-  content: '';
-  position: absolute;
-  top: -25px;
   right: 0;
-  left: 0;
-  aspect-ratio: 1/1;
-  background-image: url('/liammocean-blog/images/headflag-bg.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: block;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.25;
-  transition: 0.3s;
+  z-index: 120;
 }
 .lmn-flagresa {
   display: flex;
@@ -229,47 +210,77 @@ p { margin-bottom: 0; }
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: var(--navy);
-  width: 130px;
-  height: 145px;
+  color: #0E2A3F;
+  width: 165px;
+  height: 195px;
   text-align: center;
   line-height: 1.2;
   transition: transform 0.3s;
   position: relative;
-  z-index: 2;
-  background: url('/liammocean-blog/images/headflag.png') top center/contain no-repeat;
-  padding: 14px 10px 32px;
+  background: var(--mustard);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 82%, 50% 100%, 25% 82%, 0 100%);
+  padding: 28px 12px 50px;
+}
+/* Pli replié coin haut-gauche */
+.lmn-flagresa::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 18px solid var(--white);
+  border-right: 18px solid transparent;
+  z-index: 3;
+}
+/* Motif decoratif superposé */
+.lmn-flagresa::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 165px;
+  height: 165px;
+  background: url('/liammocean-blog/images/headflag-bg.png') center/contain no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
 }
 .lmn-flagresa:hover {
   transform: translateY(5px);
-  color: var(--navy);
+  color: #0E2A3F;
 }
 .lmn-flagresa-large {
   display: block;
-  font-size: 0.52rem;
+  font-family: var(--font-body);
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-bottom: 2px;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .lmn-flagresa-reservez {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 34px;
   font-weight: 700;
   font-style: italic;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  line-height: 1;
 }
 
 @media (max-width: 1024px) {
   .lmn-nav { display: none; }
-  .lmn-flagresa-wrap { display: none; }
   .l-subheader { height: 80px; }
   .logo-link img { height: 50px; }
   .l-subheader-cell.at_right { margin-right: 0; }
+}
+@media (max-width: 1024px) {
+  .lmn-flagresa-wrap { display: none; }
 }
 
 /* ====== Mobile CTA ====== */
