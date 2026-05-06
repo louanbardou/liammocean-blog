@@ -200,7 +200,7 @@ p { margin-bottom: 0; }
 .lmn-flagresa-wrap {
   position: fixed;
   top: 0;
-  right: 15px;
+  right: 0;
   z-index: 120;
   width: 150px;
 }
