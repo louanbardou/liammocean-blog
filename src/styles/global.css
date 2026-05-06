@@ -127,11 +127,9 @@ p { margin-bottom: 0; }
 .l-subheader-cell.at_right {
   flex-shrink: 0;
   margin-left: auto;
-  margin-right: 160px;
+  margin-right: 170px;
   display: flex;
   align-items: center;
-  align-self: flex-end;
-  padding-bottom: 22px;
   gap: 0;
 }
 
